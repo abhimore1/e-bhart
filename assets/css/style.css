@@ -1,0 +1,240 @@
+:root {
+    --theme-primary-blue: #007bff;
+    --theme-secondary-green: #28a745;
+    --theme-primary-blue-dark: #0056b3;
+    --theme-secondary-green-dark: #1e7e34;
+    --theme-light-gray: #f8f9fa;
+    --theme-dark-gray: #343a40;
+    --theme-text-color: #212529;
+    --theme-link-color: var(--theme-primary-blue);
+    --theme-link-hover-color: var(--theme-primary-blue-dark);
+    --theme-shadow-sm: 0 2px 5px rgba(0,0,0,0.075);
+    --theme-shadow-md: 0 5px 15px rgba(0,0,0,0.1);
+    --theme-shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+    color: var(--theme-text-color);
+    background-color: #fff; /* Default background */
+}
+
+/* Ensure the main content area pushes the footer down */
+.content-wrapper, /* Used in owner/admin panels */
+.container.mt-4, .container.mt-5, /* Used in public site */
+div.container.mt-5.mb-5 /* Used in business-detail.php */ {
+    flex: 1; 
+}
+
+
+/* --- Global Styles --- */
+
+/* Links */
+a {
+    color: var(--theme-link-color);
+    text-decoration: none;
+    transition: color .15s ease-in-out;
+}
+a:hover {
+    color: var(--theme-link-hover-color);
+    text-decoration: underline;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--theme-primary-blue);
+    border-color: var(--theme-primary-blue);
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, opacity .15s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: var(--theme-primary-blue-dark);
+    border-color: var(--theme-primary-blue-dark);
+    opacity: 0.95;
+}
+
+.btn-secondary { /* Bootstrap's default secondary is often gray, let's use our green */
+    background-color: var(--theme-secondary-green);
+    border-color: var(--theme-secondary-green);
+    color: #fff; /* Ensure text is white on green */
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, opacity .15s ease-in-out;
+}
+.btn-secondary:hover {
+    background-color: var(--theme-secondary-green-dark);
+    border-color: var(--theme-secondary-green-dark);
+    color: #fff;
+    opacity: 0.95;
+}
+.btn-outline-primary {
+    color: var(--theme-primary-blue);
+    border-color: var(--theme-primary-blue);
+}
+.btn-outline-primary:hover {
+    background-color: var(--theme-primary-blue);
+    color: #fff;
+}
+.btn-outline-secondary { /* Make outline secondary also green-based */
+    color: var(--theme-secondary-green);
+    border-color: var(--theme-secondary-green);
+}
+.btn-outline-secondary:hover {
+    background-color: var(--theme-secondary-green);
+    color: #fff;
+}
+
+
+/* Cards */
+.card {
+    box-shadow: var(--theme-shadow-sm);
+    transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
+    border: none; /* Cleaner look, rely on shadow */
+}
+.card:hover {
+    box-shadow: var(--theme-shadow-md);
+    /* transform: translateY(-2px); */ /* Optional: subtle lift effect */
+}
+.card-header {
+    font-weight: 500;
+}
+
+/* Navigation Bars */
+.navbar { /* General navbar styling */
+    box-shadow: var(--theme-shadow-sm);
+}
+.navbar-light .navbar-brand, .navbar-light .nav-link {
+    /* color: var(--theme-text-color); */ /* Using Bootstrap defaults is fine */
+}
+.navbar-light .nav-link:hover {
+    color: var(--theme-primary-blue);
+}
+.navbar-light .nav-link.active {
+    color: var(--theme-primary-blue);
+    font-weight: 500;
+}
+
+/* Specific to public site navbar (bg-light) */
+.navbar.bg-light {
+    background-color: #fff !important; /* Override Bootstrap's bg-light for a cleaner white */
+    border-bottom: 1px solid #eee;
+    box-shadow: var(--theme-shadow-sm);
+}
+
+
+/* Jumbotron on homepage */
+.jumbotron {
+    background-color: var(--theme-light-gray);
+    border-radius: 0.3rem;
+}
+
+
+/* --- Section-Specific Styles --- */
+
+/* Public Site Header (if specific adjustments are needed beyond global .navbar) */
+/* body > nav.navbar.navbar-expand-lg.navbar-light.bg-light (from includes/header.php) */
+
+/* Owner Panel Header (owner/includes/header.php) */
+/* uses .navbar-dark .bg-dark */
+nav.navbar.navbar-dark.bg-dark .nav-link.active {
+    font-weight: 500;
+}
+nav.navbar.navbar-dark.bg-dark .nav-link:hover {
+    opacity: 0.8;
+}
+
+
+/* Admin Panel Header (admin/includes/header.php) */
+/* uses .navbar-dark .bg-danger - This will be changed later to use theme color */
+nav.navbar.navbar-dark.bg-danger .nav-link.active { /* Current style */
+    font-weight: 500;
+}
+nav.navbar.navbar-dark.bg-danger .nav_link:hover { /* Current style */
+     opacity: 0.8;
+}
+
+
+/* Footer styles */
+footer.bg-light { /* Public site footer */
+    background-color: var(--theme-light-gray) !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+footer.bg-dark { /* Owner/Admin footer */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+/* Utility classes (optional additions) */
+.text-primary-themed {
+    color: var(--theme-primary-blue) !important;
+}
+.text-secondary-themed {
+    color: var(--theme-secondary-green) !important;
+}
+.bg-primary-themed {
+    background-color: var(--theme-primary-blue) !important;
+}
+.bg-secondary-themed {
+    background-color: var(--theme-secondary-green) !important;
+}
+
+/* Responsive typography adjustments (example) */
+@media (max-width: 768px) {
+    h1, .display-4 {
+        font-size: 2rem; /* Adjust display-4 on smaller screens */
+    }
+    .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Specificity test for card titles */
+.card .card-title { /* Keep card titles standard size or slightly larger */
+    font-weight: 500; /* Medium weight */
+}
+
+/* Ensure Bootstrap Icons are vertically aligned if used with text */
+.bi {
+    vertical-align: -0.125em; /* Default Bootstrap alignment, ensure it's consistent */
+    margin-right: 0.25rem; /* Spacing if icon is before text */
+}
+.btn .bi { /* No margin if icon is sole content or managed by btn padding */
+    margin-right: 0; 
+}
+
+/* Adjust table header style for admin/owner panels */
+.table thead.table-light th { /* For admin/owner tables with light header */
+    background-color: #e9ecef; /* A slightly darker light gray */
+    font-weight: 600;
+}
+
+/* Style for disabled links in navbars/lists to make them look more clearly disabled */
+.nav-link.disabled, .list-group-item.disabled {
+    color: #6c757d !important; /* Bootstrap's default disabled color */
+    pointer-events: none;
+    background-color: transparent;
+}
+
+/* Custom purple class for admin dashboard widget */
+.bg-purple {
+    background-color: #6f42c1; /* As previously used */
+}
+
+/* Ensure sticky footer works correctly with new flex settings */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.content-wrapper { /* Used in owner/admin panels */
+    flex: 1 0 auto;
+}
+.container.mt-4, .container.mt-5, div.container.mt-5.mb-5 { /* Used in public pages */
+    flex: 1 0 auto;
+}
+footer {
+    flex-shrink: 0;
+}

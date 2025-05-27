@@ -1,0 +1,69 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6; /* Light grey-greenish background for the owner panel */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Owner Panel Navigation Bar */
+.navbar.bg-dark {
+    background-color: #343a40 !important; /* Ensuring dark background */
+}
+
+/* Login and Registration Form Styling */
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Owner Dashboard Styling */
+.dashboard-header {
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card h5 {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.summary-card p {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.quick-links .btn {
+    margin: 5px;
+}
+
+/* Footer to stick to bottom */
+.mt-auto {
+    margin-top: auto !important;
+}
+
+/* Main content area to take available space */
+.container.mt-4 {
+    flex: 1 0 auto;
+}
