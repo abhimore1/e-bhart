@@ -1,4 +1,6 @@
 <?php
+session_start(); // START SESSION AT THE VERY TOP!
+
 // No session_start() here, it's in header.php which is included later.
 // header.php also includes config/database.php, making $conn available.
 
@@ -63,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Include header.php which starts the session and HTML output.
 // $conn is also available via header.php's inclusion of database.php.
+// The session_start() in header.php will not cause an error if one is already started.
 include 'includes/header.php';
 ?>
 

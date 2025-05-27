@@ -1,4 +1,6 @@
 <?php
+session_start(); // START SESSION AT THE VERY TOP!
+
 // No session_start() here, it's in header.php
 // header.php also includes config/database.php, making $conn available.
 
@@ -50,7 +52,7 @@ if (!$stmt_check_admin) {
 // --- Login Handling ---
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
+    $password = $_POST['password'] ?? '');
     $email_value = $email; // Repopulate email field
 
     // Validation
@@ -96,6 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Include header.php which starts the session and HTML output.
+// The session_start() in header.php will not cause an error if one is already started.
 include 'includes/header.php';
 ?>
 
